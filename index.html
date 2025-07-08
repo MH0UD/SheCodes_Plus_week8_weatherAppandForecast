@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SheCodes Plus weather Appq</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="weather-app">
+      <div class="shecodes logo"></div>
+      <div class="city-search">
+        <form action="" class="search-form" id="search-form">
+          <input
+            type="text"
+            placeholder="Search for a place"
+            required
+            id="search-form-input"
+            class="search-form-input"
+          />
+
+          <input type="submit" value="Search" class="search-form-btn" />
+        </form>
+      </div>
+      <div class="city-display">
+        <h1 class="weather-app-city" id="searched-city"></h1>
+        <div class="current-weather">
+          <div class="current-dateTime"></div>
+          <!-- TEMP | emoji & condition | list of wind & humidity -->
+          <ul class="weather-condition">
+            <li class="weather-temperature" id="current-temperature"></li>
+            <li class="weather-icon">
+              <span class="weather-icon-display"
+                ><img src="" alt="" class="src"
+              /></span>
+              <div class="weather-description"></div>
+            </li>
+            <li class="weather-details">
+              <ul class="wind-humidity">
+                <li style="line-height: 30px">
+                  Wind: <strong><span class="wind-speed"></span></strong>
+                </li>
+                <li style="line-height: 30px">
+                  Humidity:
+                  <strong><span class="humidity-content"></span></strong>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="weather-forecast">
+        <div class="weather-forecast-day">
+          <div class="weather-forecast-comingDay">Tue</div>
+          <div class="weather-forecast-icon">☀</div>
+          <div class="weather-forecast-temperatures">
+            <span class="max-temp temperature">20°</span>
+            <span class="min-temp temperature">9°</span>
+          </div>
+        </div>
+        <div class="weather-forecast-day">
+          <div class="weather-forecast-comingDay">Wed</div>
+          <div class="weather-forecast-icon">☀</div>
+          <div class="weather-forecast-temperatures">
+            <span class="max-temp temperature">20°</span>
+            <span class="min-temp temperature">9°</span>
+          </div>
+        </div>
+        <div class="weather-forecast-day">
+          <div class="weather-forecast-comingDay">Thurs</div>
+          <div class="weather-forecast-icon">☀</div>
+          <div class="weather-forecast-temperatures">
+            <span class="max-temp temperature">20°</span>
+            <span class="min-temp temperature">9°</span>
+          </div>
+        </div>
+        <div class="weather-forecast-day">
+          <div class="weather-forecast-comingDay">Fri</div>
+          <div class="weather-forecast-icon">☀</div>
+          <div class="weather-forecast-temperatures">
+            <span class="max-temp temperature">20°</span>
+            <span class="min-temp temperature">9°</span>
+          </div>
+        </div>
+        <div class="weather-forecast-day">
+          <div class="weather-forecast-comingDay">Sat</div>
+          <div class="weather-forecast-icon">☀</div>
+          <div class="weather-forecast-temperatures">
+            <span class="max-temp temperature">20°</span>
+            <span class="min-temp temperature">9°</span>
+          </div>
+        </div>
+      </div>
+      <footer>
+        Build by
+        <a href="https://github.com/MH0UD" target="_blank">Marion Houdayer</a>,
+        available on
+        <a
+          href="https://github.com/MH0UD/SheCodes_plus_week7_weatherApp"
+          target="_blank"
+          >GitHub</a
+        >, hosted by
+        <a href="https://shecodesweatherappmh.netlify.app/" target="_blank"
+          >Netlify</a
+        >
+      </footer>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

@@ -113,9 +113,30 @@ function runSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thurs", "Fri", "saT"];
+  let forecastHTLM = "";
+
+  days.forEach(function (day) {
+    forecastHTLM += `<div class="weather-forecast-day">
+    <div class="weather-forecast-comingDay">${day}</div>
+    <div class="weather-forecast-icon">☀</div>
+    <div class="weather-forecast-temperatures">
+      <span class="max-temp temperature">20°</span>
+      <span class="min-temp temperature">9°</span>
+    </div>
+  </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTLM;
+  forecastElement = document.querySelector("#forecast");
+}
+
 let searchFormElement = document.querySelector("#search-form");
 console.log(searchFormElement);
 
 searchFormElement.addEventListener("submit", runSearchSubmit);
 
 searchCity("Munich");
+displayForecast();
+//

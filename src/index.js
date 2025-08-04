@@ -50,6 +50,9 @@ function updateWeather(response) {
                   class="src"
               />`;
   iconElement.innerHTML = icon;
+
+  // call getForecast
+  getForecast(response.data.city);
 }
 
 function dateTimeFormat(date) {
@@ -113,23 +116,30 @@ function runSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
-  let days = ["Tue", "Wed", "Thurs", "Fri", "saT"];
-  let forecastHTLM = "";
+function getForecast(city) {
+  let apiToken = "3bb10a1f4o479a6e4e2c3cb7at836bff";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiToken}`;
+  axios.get(apiURL).then(displayForecast);
+}
 
-  days.forEach(function (day) {
-    forecastHTLM += `<div class="weather-forecast-day">
-    <div class="weather-forecast-comingDay">${day}</div>
-    <div class="weather-forecast-icon">☀</div>
-    <div class="weather-forecast-temperatures">
-      <span class="max-temp temperature">20°</span>
-      <span class="min-temp temperature">9°</span>
-    </div>
-  </div>`;
-  });
+function displayForecast(response) {
+  console.log(response);
+  //   let days = ["Tue", "Wed", "Thurs", "Fri", "saT"];
+  //   let forecastHTLM = "";
 
-  forecastElement.innerHTML = forecastHTLM;
-  forecastElement = document.querySelector("#forecast");
+  //   days.forEach(function (day) {
+  //     forecastHTLM += `<div class="weather-forecast-day">
+  //     <div class="weather-forecast-comingDay">${day}</div>
+  //     <div class="weather-forecast-icon">☀</div>
+  //     <div class="weather-forecast-temperatures">
+  //       <span class="max-temp temperature">20°</span>
+  //       <span class="min-temp temperature">9°</span>
+  //     </div>
+  //   </div>`;
+  //   });
+
+  //   forecastElement = document.querySelector("#forecast");
+  //   forecastElement.innerHTML = forecastHTLM;
 }
 
 let searchFormElement = document.querySelector("#search-form");
@@ -138,5 +148,6 @@ console.log(searchFormElement);
 searchFormElement.addEventListener("submit", runSearchSubmit);
 
 searchCity("Munich");
+// getForecast("Munich");
 displayForecast();
 //

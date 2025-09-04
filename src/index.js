@@ -122,24 +122,34 @@ function getForecast(city) {
   axios.get(apiURL).then(displayForecast);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
 function displayForecast(response) {
+  console.log("what's tomorrows weather?");
   console.log(response);
-  //   let days = ["Tue", "Wed", "Thurs", "Fri", "saT"];
-  //   let forecastHTLM = "";
 
-  //   days.forEach(function (day) {
-  //     forecastHTLM += `<div class="weather-forecast-day">
-  //     <div class="weather-forecast-comingDay">${day}</div>
-  //     <div class="weather-forecast-icon">☀</div>
-  //     <div class="weather-forecast-temperatures">
-  //       <span class="max-temp temperature">20°</span>
-  //       <span class="min-temp temperature">9°</span>
-  //     </div>
-  //   </div>`;
-  //   });
+  let forecastHTLM = "";
 
-  //   forecastElement = document.querySelector("#forecast");
-  //   forecastElement.innerHTML = forecastHTLM;
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHTLM += `<div class="weather-forecast-day">
+      <div class="weather-forecast-comingDay">${formatDay(day.time)}</div>
+      <img src = "${day.condition.icon_url} " class="weather-forecast-icon" />
+      <div class="weather-forecast-temperatures">
+        <span class="max-temp temperature">${day.temperature.maximum}</span>
+        <span class="min-temp temperature">${day.temperature.minimum}</span>
+      </div>
+    </div>`;
+    }
+  });
+
+  forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHTLM;
 }
 
 let searchFormElement = document.querySelector("#search-form");
@@ -149,5 +159,5 @@ searchFormElement.addEventListener("submit", runSearchSubmit);
 
 searchCity("Munich");
 // getForecast("Munich");
-displayForecast();
+// displayForecast();
 //
